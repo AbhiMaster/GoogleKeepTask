@@ -5,6 +5,10 @@ angular.module("noteCollection")
     	let currentSelected = null;
     	let id= 0;
 
+    	let dummy = document.createElement("div");
+    	dummy.setAttribute("id", "dummy");
+    	dummy.setAttribute("style", "width:30%; height:180px; border:1px solid #161616")
+
     	$scope.changeColor = function(color){
     		currentSelected.children[0].style.background = color;
     	};
@@ -40,7 +44,9 @@ angular.module("noteCollection")
     		});
     		
     	})
-    	let dragged = null;
+    	let dragged = null,
+    		draggedEnter = null,
+    		parent = null;
 
     	function showOptions(event){
     		currentSelected = event.target;
@@ -55,8 +61,10 @@ angular.module("noteCollection")
     		if(dragged !== null)
     			return;
     		while(dragged === null || event.target.tagName === "BODY"){
-    			if(event.target.getAttribute("drag") === "enable")
+    			if(event.target.getAttribute("drag") === "enable"){
     				dragged = event.target;
+    				parent = dragged.parentNode;
+    			}
     			else
     				event.target = event.target.parentNode;
     		}
@@ -64,6 +72,7 @@ angular.module("noteCollection")
     	}
 
     	function drag(event){
+    		event.preventDefault();
     			// console.log(dragged)
     		if(dragged !== null){
     			dragged.parentNode.removeChild(dragged);
@@ -72,25 +81,48 @@ angular.module("noteCollection")
     	}
 
     	function dragenter(event){
-
+    		event.preventDefault();
+    			// console.log(event.target.tagName)
+    			
     	}
 
     	function dragover(event){
+    		event.preventDefault();
+    		if(event.target.getAttribute(id) === "dummy"){
+    			console.log("okk")
+    		}
+    		if(event.target.getAttribute("drag") === "enable"){
+    				draggedEnter = event.target;
+    			}
+
+    		
 
     	}
 
     	function dragexit(event){
-
+    		event.preventDefault();
+    		// console.log("exit")
     	}
 
     	function dragleave(event){
-    		dragged = null;
+    		event.preventDefault();
+    		// draggedEnter = null;
+    		// dummy.parentNode.removeChild(dummy);
+    		// console.log("dragleave")
     		// console.log(event.target)
     	}
 
     	function drop(event){
-    		// dragged = null;
-    		console.log("event.target")
+    		console.log(draggedEnter)
+    		event.preventDefault();
+    		if(draggedEnter !== null)
+    			draggedEnter.parentNode.insertBefore(dragged, draggedEnter);
+    		else{
+    			document.getElementById("notePad").appendChild(dragged)
+    		}
+    		dragged = null;
+    		draggedEnter = null;
+    		parent = null;
     	}
 
     	document.addEventListener("drag", drag, false);
