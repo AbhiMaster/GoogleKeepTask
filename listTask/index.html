@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>List Manager</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="components/assets/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,800,400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200,300,400,100' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-app="app" style="background-color: rgb(232, 232, 232); padding-top:50px;">
+    <div style="width: 80%; margin: 0px auto; background-color: transparent; margin-bottom: 40px;">
+        <add-notes></add-notes>
+    </div>
+    <div style="width: 80%; margin: 0px auto; background: transparent;">
+        <note-collection></note-collection>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <script type="text/javascript" src="modules/addNotes/app.module.js"></script>
+
+    <!--addNotes-->
+    <script type="text/javascript" src="modules/addNotes/addNotes.module.js"></script>
+    <script type="text/javascript" src="modules/addNotes/controllers/addNotes.controller.js"></script>
+    <script type="text/javascript" src="modules/addNotes/directives/addNotes.directive.js"></script>
+
+    <!--note-->
+    <script type="text/javascript" src="modules/note/note.module.js"></script>
+    <script type="text/javascript" src="modules/note/controllers/note.controller.js"></script>
+    <script type="text/javascript" src="modules/note/directives/note.directive.js"></script>
+    
+    <!--noteCollection-->
+    <script type="text/javascript" src="modules/noteCollection/noteCollection.module.js"></script>
+    <script type="text/javascript" src="modules/noteCollection/controllers/noteCollection.controller.js"></script>
+    <script type="text/javascript" src="modules/noteCollection/directives/noteCollection.directive.js"></script>
+</body>
+
+</html>

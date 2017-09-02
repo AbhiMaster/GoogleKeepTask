@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="modules/noteColection/assets/styles/style.css" type="text/css">
+<md-content layout-padding style="overflow:hidden; padding:0px; margin: 0px; background-color: transparent;">
+    <div id="notePad" style="background-color: transparent;">
+        <div flex="33" ng-repeat="note in notes" style="float: left; width: 33%;" draggable="true" drag="enable">
+            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                <md-card-title>
+                  <md-card-title-text>
+                    <span class="md-subhead">{{note.task}}</span>
+                  </md-card-title-text>
+                </md-card-title>
+                <md-card-actions layout="row" layout-align="start" style="height: 40px;">
+                <div style="display:none;">
+                      <md-menu style="width: 40px!important;">
+                            <md-button class="md-icon-button" ng-click="$mdOpenMenu($event)" aria-label="test1" style="width: 40px!important;">
+                                <md-tooltip md-direction="bottom">Color</md-tooltip>
+                                <i class="fa fa-paint-brush" aria-hidden="true"></i>
+                            </md-button>
+                            <md-menu-content>
+                                    <button ng-click="changeColor('red')" aria-label="test1" style="width: 40px!important; min-height: 40px!important; border-radius: 200px; background-color: red; border: none;">
+                                        <div></div>
+                                    </button>
+                                    <button ng-click="changeColor('blue')" aria-label="test1" style="width: 40px!important; min-height: 40px!important; border-radius: 200px; background-color: blue; border: none;">
+                                        <div></div>
+                                    </button>
+                                    <button ng-click="changeColor('white')" aria-label="test1" style="width: 40px!important; min-height: 40px!important; border-radius: 200px; background-color: white; border: none;">
+                                        <div></div>
+                                    </button>
+                                    <button ng-click="changeColor('pink')" aria-label="test1" style="width: 40px!important; min-height: 40px!important; border-radius: 200px; background-color: pink; border: none;">
+                                        <div></div>
+                                    </button>
+                            
+                            </md-menu-content>
+                        </md-menu>
+                        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event); deleteTask($index)" aria-label="test2" style="width: 40px!important;">
+                            <md-tooltip md-direction="bottom">Delete</md-tooltip>
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </md-button>
+                        <md-button class="md-icon-button" ng-click="$mdOpenMenu($event); copyTask($index)" aria-label="test" style="width: 40px!important;">
+                            <md-tooltip md-direction="bottom">Copy</md-tooltip>
+                            <i class="fa fa-clone" aria-hidden="true"></i>
+                        </md-button>
+                    </div>
+                </md-card-actions>
+            </md-card>
+        </div>
+    </div>
+</md-content>

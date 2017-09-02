@@ -1,0 +1,20 @@
+<md-content layout-padding style="box-shadow: 10px 10px 10px rgba(200, 200, 200, 0.8); overflow:hidden; padding:0px; margin: 0px;">
+    <div id="title" style="height:35px !important; margin:0px; padding: 5px; display: none; font-size: 20px; font-weight: 500; padding-left:10px; font-family: 'Oswald'">
+        Title
+    </div>
+    <div layout="row" id="note">
+        <textarea ng-model="note" placeholder="Take a note..." style="outline: none; border: none; width: 100%; height: auto; min-height: 50px; overflow: hidden; resize: none; padding: 5px; margin: 0; background-color: transparent;">
+            
+        </textarea>
+    </div>
+    <div id="taskMenu" layout="row" style="height:35px !important; display: none; margin:0px; padding: 0px; margin-bottom: 10px;">
+        <md-button flex="40" ng-click="" aria-label="Color" class="md-icon-button">
+            
+        </md-button>
+
+        <md-button flex="20" ng-click="addToTask()" aria-label="addTask" class="" style="float: right; max-width: 100px!important;" ng-click="addToTask()">
+             Done
+        </md-button>
+
+    </div>
+</md-content>

@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="modules/showTask/assets/styles/style.css" type="text/css">
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="background:#FFF; margin-top:25px; padding:8px 15px;">
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 postheading">
+        {{task.Legal_Action_Type.template}}
+    </div>
+    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 editor">
+        <i class="fa fa-calendar-plus-o"></i> {{task.Legal_Action_Type.createdAt.split("T")[0]}} &ensp;&ensp;
+        <i class="fa fa-calendar-check-o"></i> {{task.Legal_Action_Type.updatedAt.split("T")[0]}}
+        <br />
+        <i class="fa fa-user-plus"></i> {{task.Action_Attribute.value}}
+    </div>
+</div>
