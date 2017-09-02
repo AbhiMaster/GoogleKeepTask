@@ -29,6 +29,7 @@ angular.module("noteCollection")
     	}, function(newValue, oldValue){
     		if(newValue !== oldValue){
     			setTimeout(function(){
+	    			
 	    		    angular.forEach(document.getElementById("notePad").children, function(value){
 		    			value.addEventListener("mouseenter", showOptions, false)
 		    			value.addEventListener("mouseleave", hideOptions, false)
@@ -38,10 +39,18 @@ angular.module("noteCollection")
     	})
 
     	$scope.$on("addTask", function(event, data){
-    		$scope.notes.push({
+			let notes = [];
+    		angular.forEach(document.getElementById("notePad").children, function(value){
+				notes.push({
+	    			id: id++,
+	    			task: value.children[0].getAttribute("textnote")
+	    		});
+			})
+    		notes.push({
     			id: id++,
     			task: data.data
     		});
+    		$scope.notes = notes
     		
     	})
     	let dragged = null,
@@ -88,41 +97,34 @@ angular.module("noteCollection")
 
     	function dragover(event){
     		event.preventDefault();
-    		if(event.target.getAttribute(id) === "dummy"){
-    			console.log("okk")
-    		}
+    		if(event.target.getAttribute(id) === "dummy"){  
+  		}
     		if(event.target.getAttribute("drag") === "enable"){
     				draggedEnter = event.target;
     			}
-
-    		
-
     	}
 
     	function dragexit(event){
     		event.preventDefault();
-    		// console.log("exit")
     	}
 
     	function dragleave(event){
     		event.preventDefault();
-    		// draggedEnter = null;
-    		// dummy.parentNode.removeChild(dummy);
-    		// console.log("dragleave")
-    		// console.log(event.target)
     	}
 
     	function drop(event){
-    		console.log(draggedEnter)
     		event.preventDefault();
-    		if(draggedEnter !== null)
+    		if(draggedEnter !== null){
     			draggedEnter.parentNode.insertBefore(dragged, draggedEnter);
+	    		
+	    	}
     		else{
     			document.getElementById("notePad").appendChild(dragged)
     		}
     		dragged = null;
     		draggedEnter = null;
     		parent = null;
+    		
     	}
 
     	document.addEventListener("drag", drag, false);
